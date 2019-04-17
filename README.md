@@ -10,3 +10,4 @@ The student will then see their information such as the subject and course that 
 They will also be allowed to change either their Blackboard or SOS password or both.
 The system will then check if the password fulfills each requirement set out by the system. If the new password fulfills the requirements the password replaces the student’s old password.
 
+![](CPUTResetPassword.png)
