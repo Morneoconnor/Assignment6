@@ -9,5 +9,8 @@
         <module name="CPUTPasswordReset" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CPUTPasswordReset" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
