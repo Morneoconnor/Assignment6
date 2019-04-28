@@ -1,12 +1,26 @@
 package com.MorneOConnor.repository;
 
+import com.MorneOConnor.domain.SOSNewPassword;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
 public class SOSNewPasswordRepositoryTest {
+    private SOSNewPasswordRepository repository;
+
+    @Before
+    public void setUp() throws Exception {
+        this.repository = SOSNewPasswordRepository.getRepository();
+    }
+
     @Test
     public void create() throws Exception {
+        this.repository.create(null);
+        Assert.assertEquals(null, null);
     }
 
     @Test
@@ -23,6 +37,8 @@ public class SOSNewPasswordRepositoryTest {
 
     @Test
     public void getAll() throws Exception {
+        Set<SOSNewPassword> students = this.repository.getAll();
+        Assert.assertEquals(1, students.size());
     }
 
 }
