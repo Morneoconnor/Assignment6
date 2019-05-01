@@ -25,19 +25,32 @@ public class PasswordRequirementsRepository {
     }
 
     public PasswordRequirements read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_passwordRequirements.contains(studentNumber)) {
+            for (PasswordRequirements obj : _passwordRequirements) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
+
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
-    }
-
     public PasswordRequirements update(PasswordRequirements passwordRequirements){
-        // find the course, update it and delete it if it exists
+        for(PasswordRequirements i : _passwordRequirements)
+            if(i.equals(passwordRequirements.getPasswordCharacther())) {
+                _passwordRequirements.remove(i);
+                _passwordRequirements.add(passwordRequirements);
+                break;
+            }
         return passwordRequirements;
     }
 
+    public void delete(String studentNumber) {
+        if(_passwordRequirements.contains(studentNumber))
+        {
+            _passwordRequirements.remove(studentNumber);
+        }
+    }
 
     public Set<PasswordRequirements> getAll(){
         return this._passwordRequirements;

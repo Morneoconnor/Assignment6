@@ -26,19 +26,31 @@ public class AuthenticationQuestionRepository implements IAuthenticationQuestion
     }
 
     public AuthenticationQuestions read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_authenticationQuestions.contains(studentNumber)) {
+            for (AuthenticationQuestions obj : _authenticationQuestions) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
-    }
-
     public AuthenticationQuestions update(AuthenticationQuestions authenticationQuestions){
-        // find the course, update it and delete it if it exists
+        for(AuthenticationQuestions i : _authenticationQuestions)
+            if(i.equals(authenticationQuestions.getClass())) {
+                _authenticationQuestions.remove(i);
+                _authenticationQuestions.add(authenticationQuestions);
+                break;
+            }
         return authenticationQuestions;
     }
 
+    public void delete(String studentNumber) {
+        if(_authenticationQuestions.contains(studentNumber))
+        {
+            _authenticationQuestions.remove(studentNumber);
+        }
+    }
 
     public Set<AuthenticationQuestions> getAll(){
         return this._authenticationQuestions;

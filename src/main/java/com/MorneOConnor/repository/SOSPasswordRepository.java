@@ -9,35 +9,46 @@ public class SOSPasswordRepository {
     private static SOSPasswordRepository repository = null;
     private Set<SOSPassword> _sosPassword;
 
-    private SOSPasswordRepository(){
+    private SOSPasswordRepository() {
         this._sosPassword = new HashSet<>();
     }
 
-    public static SOSPasswordRepository getRepository(){
+    public static SOSPasswordRepository getRepository() {
         if (repository == null) repository = new SOSPasswordRepository();
         return repository;
     }
 
-
-    public SOSPassword create(SOSPassword sosPassword){
+    public SOSPassword create(SOSPassword sosPassword) {
         this._sosPassword.add(sosPassword);
         return sosPassword;
     }
 
-    public SOSPassword read(String studentNumber){
-        // find the course that matches the id and return it if exist
+    public SOSPassword read(String studentNumber) {
+        if (_sosPassword.contains(studentNumber)) {
+            for (SOSPassword obj : _sosPassword) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
-    }
+    public SOSPassword update(SOSPassword sosPassword) {
+        for (SOSPassword i : _sosPassword)
+            if (i.equals(sosPassword.getOldSOSPassword())) {
+                _sosPassword.remove(i);
+                _sosPassword.add(sosPassword);
+                break;
+            }
 
-    public SOSPassword update(SOSPassword sosPassword){
-        // find the course, update it and delete it if it exists
         return sosPassword;
     }
 
+    public void delete(String studentNumber) {
+        if (_sosPassword.contains(studentNumber)) {
+            _sosPassword.remove(studentNumber);
+        }
+    }
 
     public Set<SOSPassword> getAll(){
         return this._sosPassword;

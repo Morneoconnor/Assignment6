@@ -1,6 +1,7 @@
 package com.MorneOConnor.repository;
 
 import com.MorneOConnor.domain.AuthenticationQuestions;
+import com.MorneOConnor.factory.AuthenticationQuestionsFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,20 +20,29 @@ public class AuthenticationQuestionRepositoryTest {
 
     @Test
     public void create() throws Exception {
-        this.repository.create(null);
-        Assert.assertEquals(null, null);
+        AuthenticationQuestions obj = AuthenticationQuestionsFactory.createAuthenticationQuestions
+                ("mom","dad","111");
+
+        this.repository.create(obj);
+        Assert.assertEquals("dad", obj.getFatherName());
     }
 
     @Test
     public void read() throws Exception {
-    }
+        AuthenticationQuestions obj = this.repository.read("111");
+        Assert.assertEquals("mom",obj.getMotherName());
 
-    @Test
-    public void delete() throws Exception {
     }
 
     @Test
     public void update() throws Exception {
+        AuthenticationQuestions obj = AuthenticationQuestionsFactory.createAuthenticationQuestions
+                ("mom","dad","111");
+        Assert.assertEquals("mom", obj.getMotherName());
+    }
+
+    @Test
+    public void delete() throws Exception {
     }
 
     @Test

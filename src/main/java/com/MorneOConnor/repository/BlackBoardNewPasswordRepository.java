@@ -26,20 +26,33 @@ public class BlackBoardNewPasswordRepository {
     }
 
     public BlackBoardNewPassword read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_blackBoardNewPassword.contains(studentNumber)) {
+            for (BlackBoardNewPassword obj : _blackBoardNewPassword) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
-    }
-
     public BlackBoardNewPassword update(BlackBoardNewPassword blackBoardNewPassword){
-        // find the course, update it and delete it if it exists
+
+        for(BlackBoardNewPassword i : _blackBoardNewPassword)
+            if(i.equals(blackBoardNewPassword.getClass())) {
+                _blackBoardNewPassword.remove(i);
+                _blackBoardNewPassword.add(blackBoardNewPassword);
+                break;
+            }
+
         return blackBoardNewPassword;
     }
 
-
+    public void delete(String studentNumber) {
+        if(_blackBoardNewPassword.contains(studentNumber))
+        {
+            _blackBoardNewPassword.remove(studentNumber);
+        }
+    }
     public Set<BlackBoardNewPassword> getAll(){
         return this._blackBoardNewPassword;
     }

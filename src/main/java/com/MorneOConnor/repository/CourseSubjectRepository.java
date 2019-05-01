@@ -18,26 +18,38 @@ public class CourseSubjectRepository {
         return repository;
     }
 
-
     public CourseSubjects create(CourseSubjects courseSubject){
         this._courseSubject.add(courseSubject);
         return courseSubject;
     }
 
     public CourseSubjects read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_courseSubject.contains(studentNumber)) {
+            for (CourseSubjects obj : _courseSubject) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
-    }
-
     public CourseSubjects update(CourseSubjects courseSubject){
-        // find the course, update it and delete it if it exists
+        for(CourseSubjects i : _courseSubject)
+            if(i.equals(courseSubject.getClass())) {
+                _courseSubject.remove(i);
+                _courseSubject.add(courseSubject);
+                break;
+            }
         return courseSubject;
     }
 
+    public void delete(String studentNumber) {
+
+        if(_courseSubject.contains(studentNumber))
+        {
+            _courseSubject.remove(studentNumber);
+        }
+    }
 
     public Set<CourseSubjects> getAll(){
         return this._courseSubject;

@@ -25,19 +25,32 @@ public class CourseRegistrationRepository {
     }
 
     public CourseRegistration read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_courseRegistration.contains(studentNumber)) {
+            for (CourseRegistration obj : _courseRegistration) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
-    }
-
     public CourseRegistration update(CourseRegistration courseRegistration){
-        // find the course, update it and delete it if it exists
+
+        for(CourseRegistration i : _courseRegistration)
+            if(i.equals(courseRegistration.getClass())) {
+                _courseRegistration.remove(i);
+                _courseRegistration.add(courseRegistration);
+                break;
+            }
         return courseRegistration;
     }
 
+    public void delete(String studentNumber) {
+        if(_courseRegistration.contains(studentNumber))
+        {
+            _courseRegistration.remove(studentNumber);
+        }
+    }
 
     public Set<CourseRegistration> getAll(){
         return this._courseRegistration;

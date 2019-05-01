@@ -25,17 +25,31 @@ public class SOSNewPasswordRepository {
     }
 
     public SOSNewPassword read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_sosNewPassword.contains(studentNumber)) {
+            for (SOSNewPassword obj : _sosNewPassword) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
+    public SOSNewPassword update(SOSNewPassword sosNewPassword){
+        for(SOSNewPassword i : _sosNewPassword)
+            if(i.equals(sosNewPassword.getNewSOSPassword())) {
+                _sosNewPassword.remove(i);
+                _sosNewPassword.add(sosNewPassword);
+                break;
+            }
+
+        return sosNewPassword;
     }
 
-    public SOSNewPassword update(SOSNewPassword sosNewPassword){
-        // find the course, update it and delete it if it exists
-        return sosNewPassword;
+    public void delete(String studentNumber) {
+        if(_sosNewPassword.contains(studentNumber))
+        {
+            _sosNewPassword.remove(studentNumber);
+        }
     }
 
 

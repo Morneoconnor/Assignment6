@@ -25,19 +25,31 @@ public class StudentRepository {
     }
 
     public Student read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_student.contains(studentNumber)) {
+            for (Student obj : _student) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
-    }
-
     public Student update(Student student){
-        // find the course, update it and delete it if it exists
+        for(Student i : _student)
+            if(i.equals(student.getClass())) {
+                _student.remove(i);
+                _student.add(student);
+                break;
+            }
         return student;
     }
 
+    public void delete(String studentNumber) {
+        if(_student.contains(studentNumber))
+        {
+            _student.remove(studentNumber);
+        }
+    }
 
     public Set<Student> getAll(){
         return this._student;

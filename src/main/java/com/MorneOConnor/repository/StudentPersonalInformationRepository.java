@@ -25,17 +25,31 @@ public class StudentPersonalInformationRepository {
     }
 
     public StudentPersonalInformation read(String studentNumber){
-        // find the course that matches the id and return it if exist
+        if (_studentPersonalInformation.contains(studentNumber)) {
+            for (StudentPersonalInformation obj : _studentPersonalInformation) {
+                if (obj.equals(studentNumber))
+                    return obj;
+            }
+        }
+
         return null;
     }
 
-    public void delete(String studentNumber) {
-        // find the course, delete it if it exist
+    public StudentPersonalInformation update(StudentPersonalInformation studentPersonalInformation){
+        for(StudentPersonalInformation i : _studentPersonalInformation)
+            if(i.equals(studentPersonalInformation.getClass())) {
+                _studentPersonalInformation.remove(i);
+                _studentPersonalInformation.add(studentPersonalInformation);
+                break;
+            }
+        return studentPersonalInformation;
     }
 
-    public StudentPersonalInformation update(StudentPersonalInformation studentPersonalInformation){
-        // find the course, update it and delete it if it exists
-        return studentPersonalInformation;
+    public void delete(String studentNumber) {
+        if(_studentPersonalInformation.contains(studentNumber))
+        {
+            _studentPersonalInformation.remove(studentNumber);
+        }
     }
 
 
