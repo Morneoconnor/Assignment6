@@ -1,6 +1,7 @@
 package com.MorneOConnor.repository;
 
 import com.MorneOConnor.domain.BlackBoardNewPassword;
+import com.MorneOConnor.factory.BlackBoardNewPasswordFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,26 +20,44 @@ public class BlackBoardNewPasswordRepositoryTest {
 
     @Test
     public void create() throws Exception {
-        this.repository.create(null);
-        Assert.assertEquals(null, null);
+        BlackBoardNewPassword obj = BlackBoardNewPasswordFactory.createBlackBoardNewPassword
+                ("Password123!");
+
+        this.repository.create(obj);
+        Assert.assertEquals("Password123", obj.getNewBlackBoardPassword());
     }
 
     @Test
     public void read() throws Exception {
-    }
-
-    @Test
-    public void delete() throws Exception {
+        Object obj = this.repository.read("Testing");
+        Assert.assertNull(obj);
     }
 
     @Test
     public void update() throws Exception {
+        BlackBoardNewPassword obj = BlackBoardNewPasswordFactory.createBlackBoardNewPassword
+                ("Password123!");
+        Assert.assertEquals("Password123!", obj.getNewBlackBoardPassword());
+    }
+
+    @Test
+    public void delete() throws Exception {
+        boolean item = false;
+        this.repository.delete("Password123!");
+        Set<BlackBoardNewPassword> obj = this.repository.getAll();
+        if(obj.contains("Password123!"))
+        {
+            item = true;
+        }
+        else
+            item = false;
+        assertFalse(item);
     }
 
     @Test
     public void getAll() throws Exception {
-        Set<BlackBoardNewPassword> students = this.repository.getAll();
-        Assert.assertEquals(1, students.size());
+        Set<BlackBoardNewPassword> obj = this.repository.getAll();
+        Assert.assertNotNull(obj);
     }
 
 }

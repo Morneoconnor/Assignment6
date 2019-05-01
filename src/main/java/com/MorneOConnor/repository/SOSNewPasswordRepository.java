@@ -24,10 +24,10 @@ public class SOSNewPasswordRepository {
         return sosNewPassword;
     }
 
-    public SOSNewPassword read(String studentNumber){
-        if (_sosNewPassword.contains(studentNumber)) {
+    public SOSNewPassword read(String password){
+        if (_sosNewPassword.contains(password)) {
             for (SOSNewPassword obj : _sosNewPassword) {
-                if (obj.equals(studentNumber))
+                if (obj.equals(password))
                     return obj;
             }
         }
@@ -45,10 +45,10 @@ public class SOSNewPasswordRepository {
         return sosNewPassword;
     }
 
-    public void delete(String studentNumber) {
-        if(_sosNewPassword.contains(studentNumber))
+    public void delete(String password) {
+        if(_sosNewPassword.contains(password))
         {
-            _sosNewPassword.remove(studentNumber);
+            _sosNewPassword.remove(password);
         }
     }
 

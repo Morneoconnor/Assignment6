@@ -12,14 +12,14 @@ public class StudentPersonalInformationFactoryTest {
         String name = "name";
         String surName = "O'Connor";
         String studentNumber = "1234";
-        String studentId = "1234";
+        String studentIdNumber = "1234";
         String emailAddress = "morne@test.com";
         StudentPersonalInformation obj = StudentPersonalInformationFactory.createStudentPersonalInformation
-                (name, surName,studentId, studentNumber, emailAddress);
+                (name, surName, studentNumber, studentIdNumber, emailAddress);
         Assert.assertEquals("name",obj.getStudentName());
         Assert.assertEquals("O'Connor",obj.getStudentSurName());
         Assert.assertEquals("1234",obj.getStudentIdNumber());
         Assert.assertEquals("morne@test.com",obj.getEmailAddress());
-        Assert.assertEquals("1234",obj.getStudentId());
+        Assert.assertEquals("1234",obj.getStudentNumber());
     }
 }

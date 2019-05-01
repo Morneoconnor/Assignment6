@@ -23,10 +23,10 @@ public class SOSPasswordRepository {
         return sosPassword;
     }
 
-    public SOSPassword read(String studentNumber) {
-        if (_sosPassword.contains(studentNumber)) {
+    public SOSPassword read(String password) {
+        if (_sosPassword.contains(password)) {
             for (SOSPassword obj : _sosPassword) {
-                if (obj.equals(studentNumber))
+                if (obj.equals(password))
                     return obj;
             }
         }

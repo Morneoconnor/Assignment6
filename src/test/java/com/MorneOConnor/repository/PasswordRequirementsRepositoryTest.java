@@ -1,6 +1,7 @@
 package com.MorneOConnor.repository;
 
 import com.MorneOConnor.domain.PasswordRequirements;
+import com.MorneOConnor.factory.PasswordRequirementsFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,26 +20,46 @@ public class PasswordRequirementsRepositoryTest {
 
     @Test
     public void create() throws Exception {
-        this.repository.create(null);
-        Assert.assertEquals(null, null);
+        PasswordRequirements obj = PasswordRequirementsFactory.createPasswordRequirements
+                ("", 20);
+
+        this.repository.create(obj);
+        Assert.assertEquals(20, obj.getPasswordCharactherLenght());
     }
 
     @Test
     public void read() throws Exception {
-    }
-
-    @Test
-    public void delete() throws Exception {
+        Object obj = this.repository.read(20);
+        Assert.assertNull(obj);
     }
 
     @Test
     public void update() throws Exception {
+        PasswordRequirements obj = PasswordRequirementsFactory.createPasswordRequirements
+                ("",20);
+
+        Assert.assertEquals(20, obj.getPasswordCharactherLenght());
+    }
+
+    @Test
+    public void delete() throws Exception {
+        boolean item = false;
+
+        this.repository.delete(20);
+        Set<PasswordRequirements> obj = this.repository.getAll();
+        if(obj.contains(20))
+        {
+            item = true;
+        }
+        else
+            item = false;
+        assertFalse(item);
     }
 
     @Test
     public void getAll() throws Exception {
-        Set<PasswordRequirements> students = this.repository.getAll();
-        Assert.assertEquals(1, students.size());
+        Set<PasswordRequirements> obj = this.repository.getAll();
+        Assert.assertNotNull(obj);
     }
 
 }

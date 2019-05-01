@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.management.DynamicMBean;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -29,8 +30,8 @@ public class AuthenticationQuestionRepositoryTest {
 
     @Test
     public void read() throws Exception {
-        AuthenticationQuestions obj = this.repository.read("111");
-        Assert.assertEquals("mom",obj.getMotherName());
+        Object obj = this.repository.read("333");
+        Assert.assertNull(obj);
 
     }
 
@@ -43,12 +44,22 @@ public class AuthenticationQuestionRepositoryTest {
 
     @Test
     public void delete() throws Exception {
+        boolean item = false;
+        this.repository.delete("111");
+        Set<AuthenticationQuestions> obj = this.repository.getAll();
+        if(obj.contains("111"))
+        {
+            item = true;
+        }
+        else
+            item = false;
+        assertFalse(item);
     }
 
     @Test
     public void getAll() throws Exception {
-        Set<AuthenticationQuestions> students = this.repository.getAll();
-        Assert.assertEquals(1, students.size());
+        Set<AuthenticationQuestions> obj = this.repository.getAll();
+        Assert.assertNotNull(obj);
     }
 
 }

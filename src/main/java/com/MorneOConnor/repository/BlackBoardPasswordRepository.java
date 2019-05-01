@@ -24,10 +24,10 @@ public class BlackBoardPasswordRepository {
         return blackBoardPassword;
     }
 
-    public BlackBoardPassword read(String studentNumber){
-        if (_blackBoardPassword.contains(studentNumber)) {
+    public BlackBoardPassword read(String password){
+        if (_blackBoardPassword.contains(password)) {
             for (BlackBoardPassword obj : _blackBoardPassword) {
-                if (obj.equals(studentNumber))
+                if (obj.equals(password))
                     return obj;
             }
         }

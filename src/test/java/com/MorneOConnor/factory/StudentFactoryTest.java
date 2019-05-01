@@ -11,11 +11,11 @@ public class StudentFactoryTest {
     public void createStudent() {
         String name = "name";
         String courseName = "App Dev";
-        String studentId = "1234";
+        String studentNumber = "1234";
         Student obj = StudentFactory.createStudent
-                (name,courseName, studentId);
+        (name,courseName, studentNumber);
         Assert.assertEquals("name",obj.getStudentName());
         Assert.assertEquals("App Dev",obj.getCourseName());
-        Assert.assertEquals("1234",obj.getStudentId());
-    }
-}
+        Assert.assertEquals("1234",obj.getStudentNumber());
+        }
+        }

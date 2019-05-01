@@ -1,6 +1,7 @@
 package com.MorneOConnor.repository;
 
 import com.MorneOConnor.domain.SOSPassword;
+import com.MorneOConnor.factory.SOSPasswordFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,26 +20,46 @@ public class SOSPasswordRepositoryTest {
 
     @Test
     public void create() throws Exception {
-        this.repository.create(null);
-        Assert.assertEquals(null, null);
+        SOSPassword obj = SOSPasswordFactory.createSOSPassword
+                ("PW12");
+
+        this.repository.create(obj);
+        Assert.assertEquals("PW12", obj.getOldSOSPassword());
     }
 
     @Test
     public void read() throws Exception {
-    }
-
-    @Test
-    public void delete() throws Exception {
+        Object obj = this.repository.read("PW12");
+        Assert.assertNull(obj);
     }
 
     @Test
     public void update() throws Exception {
+        SOSPassword obj = SOSPasswordFactory.createSOSPassword
+                ("PW12");
+
+        Assert.assertEquals("PW12", obj.getOldSOSPassword());
+    }
+
+    @Test
+    public void delete() throws Exception {
+        boolean item = false;
+
+        this.repository.delete("PW12");
+        Set<SOSPassword> obj = this.repository.getAll();
+        if(obj.contains("PW12"))
+        {
+            item = true;
+        }
+        else
+            item = false;
+        assertFalse(item);
     }
 
     @Test
     public void getAll() throws Exception {
-        Set<SOSPassword> students = this.repository.getAll();
-        Assert.assertEquals(1, students.size());
+        Set<SOSPassword> obj = this.repository.getAll();
+        Assert.assertNotNull(obj);
     }
 
 }

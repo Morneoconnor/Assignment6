@@ -24,10 +24,10 @@ public class PasswordRequirementsRepository {
         return passwordRequirements;
     }
 
-    public PasswordRequirements read(String studentNumber){
-        if (_passwordRequirements.contains(studentNumber)) {
+    public PasswordRequirements read(int passwordLength){
+        if (_passwordRequirements.contains(passwordLength)) {
             for (PasswordRequirements obj : _passwordRequirements) {
-                if (obj.equals(studentNumber))
+                if (obj.equals(passwordLength))
                     return obj;
             }
         }
@@ -45,10 +45,10 @@ public class PasswordRequirementsRepository {
         return passwordRequirements;
     }
 
-    public void delete(String studentNumber) {
-        if(_passwordRequirements.contains(studentNumber))
+    public void delete(int  passwordLength) {
+        if(_passwordRequirements.contains(passwordLength))
         {
-            _passwordRequirements.remove(studentNumber);
+            _passwordRequirements.remove(passwordLength);
         }
     }
 

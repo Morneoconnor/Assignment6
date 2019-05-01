@@ -4,13 +4,13 @@ import com.MorneOConnor.domain.StudentPersonalInformation;
 
 public class StudentPersonalInformationFactory {
     public static StudentPersonalInformation createStudentPersonalInformation (
-            String studentName, String studentSurName, String studentId,
+            String studentName, String studentSurName, String studentNumber,
             String studentIdNumber, String emailAddress)
     {
         return new StudentPersonalInformation.Builder()
                 .studentName(studentName)
                 .studentSurName(studentSurName)
-                .studentId(studentId)
+                .studentNumber(studentNumber)
                 .studentIdNumber(studentIdNumber)
                 .emailAddress(emailAddress)
                 .build();

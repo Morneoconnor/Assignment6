@@ -23,10 +23,10 @@ public class CourseSubjectRepository {
         return courseSubject;
     }
 
-    public CourseSubjects read(String studentNumber){
-        if (_courseSubject.contains(studentNumber)) {
+    public CourseSubjects read(int subjectId){
+        if (_courseSubject.contains(subjectId)) {
             for (CourseSubjects obj : _courseSubject) {
-                if (obj.equals(studentNumber))
+                if (obj.equals(subjectId))
                     return obj;
             }
         }
@@ -43,11 +43,11 @@ public class CourseSubjectRepository {
         return courseSubject;
     }
 
-    public void delete(String studentNumber) {
+    public void delete(int studentId) {
 
-        if(_courseSubject.contains(studentNumber))
+        if(_courseSubject.contains(studentId))
         {
-            _courseSubject.remove(studentNumber);
+            _courseSubject.remove(studentId);
         }
     }
 

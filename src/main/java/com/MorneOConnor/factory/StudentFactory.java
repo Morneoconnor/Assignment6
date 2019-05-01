@@ -5,12 +5,12 @@ import com.MorneOConnor.domain.Student;
 public class StudentFactory {
 
         public static Student createStudent (
-            String studentName, String courseName, String studentId)
+            String studentName, String courseName, String studentNumber)
         {
             return new Student.Builder()
                     .studentName(studentName)
                     .courseName(courseName)
-                    .studentId(studentId)
+                    .studentNumber(studentNumber)
                     .build();
         }
 }

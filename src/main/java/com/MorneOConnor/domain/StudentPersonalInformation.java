@@ -2,7 +2,7 @@ package com.MorneOConnor.domain;
 
 public class StudentPersonalInformation {
 
-    private String studentName, studentSurName, studentId, studentIdNumber, emailAddress;
+    private String studentName, studentSurName, studentNumber, studentIdNumber, emailAddress;
 
 
     private StudentPersonalInformation() {
@@ -11,7 +11,7 @@ public class StudentPersonalInformation {
     private StudentPersonalInformation(Builder builder) {
         this.studentName = builder.studentName;
         this.studentSurName = builder.studentSurName;
-        this.studentId = builder.studentId;
+        this.studentNumber = builder.studentNumber;
         this.studentIdNumber = builder.studentIdNumber;
         this.emailAddress = builder.emailAddress;
     }
@@ -24,8 +24,8 @@ public class StudentPersonalInformation {
         return studentSurName;
     }
 
-    public String getStudentId() {
-        return studentId;
+    public String getStudentNumber() {
+        return studentNumber;
     }
     public String getStudentIdNumber() {
         return studentIdNumber;
@@ -36,7 +36,7 @@ public class StudentPersonalInformation {
     }
 
     public static class Builder {
-        private String studentName, studentSurName, studentId, studentIdNumber, emailAddress;
+        private String studentName, studentSurName, studentNumber, studentIdNumber, emailAddress;
 
         public Builder studentName(String studentName) {
             this.studentName = studentName;
@@ -48,8 +48,8 @@ public class StudentPersonalInformation {
             return this;
         }
 
-        public Builder studentId(String studentId) {
-            this.studentId = studentId;
+        public Builder studentNumber(String studentNumber) {
+            this.studentNumber = studentNumber;
             return this;
         }
         public Builder studentIdNumber(String studentIdNumber) {
