@@ -5,7 +5,7 @@ import com.MorneOConnor.domain.PasswordRequirements;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PasswordRequirementsRepository {
+public class PasswordRequirementsRepository implements IPasswordRequirementsRepository{
     private static PasswordRequirementsRepository repository = null;
     private Set<PasswordRequirements> _passwordRequirements;
 
@@ -43,6 +43,16 @@ public class PasswordRequirementsRepository {
                 break;
             }
         return passwordRequirements;
+    }
+
+    @Override
+    public void delete(String s) {
+
+    }
+
+    @Override
+    public PasswordRequirements read(String s) {
+        return null;
     }
 
     public void delete(int  passwordLength) {

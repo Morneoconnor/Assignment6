@@ -5,7 +5,7 @@ import com.MorneOConnor.domain.StudentPersonalInformation;
 import java.util.HashSet;
 import java.util.Set;
 
-public class StudentPersonalInformationRepository {
+public class StudentPersonalInformationRepository implements IStudentPersonalInformationRepository{
     private static StudentPersonalInformationRepository repository = null;
     private Set<StudentPersonalInformation> _studentPersonalInformation;
 

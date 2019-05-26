@@ -5,7 +5,7 @@ import com.MorneOConnor.domain.SOSNewPassword;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SOSNewPasswordRepository {
+public class SOSNewPasswordRepository implements ISOSNewPasswordRepository{
     private static SOSNewPasswordRepository repository = null;
     private Set<SOSNewPassword> _sosNewPassword;
 

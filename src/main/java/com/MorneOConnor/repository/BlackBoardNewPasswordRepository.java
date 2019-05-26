@@ -5,7 +5,7 @@ import com.MorneOConnor.domain.BlackBoardNewPassword;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BlackBoardNewPasswordRepository {
+public class BlackBoardNewPasswordRepository implements IBlackBoardNewPasswordRepository{
 
     private static BlackBoardNewPasswordRepository repository = null;
     private Set<BlackBoardNewPassword> _blackBoardNewPassword;

@@ -5,7 +5,7 @@ import com.MorneOConnor.domain.CourseSubjects;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CourseSubjectRepository {
+public class CourseSubjectRepository implements ICourseSubjectRepository{
     private static CourseSubjectRepository repository = null;
     private Set<CourseSubjects> _courseSubject;
 
@@ -41,6 +41,16 @@ public class CourseSubjectRepository {
                 break;
             }
         return courseSubject;
+    }
+
+    @Override
+    public void delete(String s) {
+
+    }
+
+    @Override
+    public CourseSubjects read(String s) {
+        return null;
     }
 
     public void delete(int studentId) {
