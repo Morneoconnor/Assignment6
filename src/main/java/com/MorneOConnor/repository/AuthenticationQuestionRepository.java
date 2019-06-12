@@ -1,10 +1,11 @@
 package com.MorneOConnor.repository;
 
 import com.MorneOConnor.domain.AuthenticationQuestions;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository("AuthenticationQuestion")
 public class AuthenticationQuestionRepository implements IAuthenticationQuestionRepository {
 
     private static AuthenticationQuestionRepository repository = null;

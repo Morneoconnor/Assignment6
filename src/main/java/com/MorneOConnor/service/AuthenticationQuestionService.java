@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-    @Service
+@Service("AuthenticationQuestions")
     public class AuthenticationQuestionService implements IAuthenticationQuestionService
     {
 

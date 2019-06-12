@@ -5,6 +5,7 @@ import com.MorneOConnor.factory.BlackBoardPasswordFactory;
 import javafx.application.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
@@ -18,7 +19,7 @@ import static org.junit.Assert.*;
 @SpringBootTest(classes = Application.class)
 @RunWith(SpringRunner.class)
 public class BlackBoardPasswordControllerTest {
-
+    @Autowired
     private TestRestTemplate restTemplate;
     private String baseURL="http://localhost:8080/blackboardpassword";
 

@@ -5,6 +5,9 @@ import com.MorneOConnor.factory.AuthenticationQuestionsFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
 import javax.management.DynamicMBean;
 import java.util.Set;
@@ -12,6 +15,8 @@ import java.util.Set;
 import static org.junit.Assert.*;
 
 public class AuthenticationQuestionRepositoryTest {
+    @Autowired
+
     private AuthenticationQuestionRepository repository;
 
     @Before

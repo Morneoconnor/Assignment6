@@ -2,10 +2,13 @@ package com.MorneOConnor.controller;
 
 import com.MorneOConnor.domain.AuthenticationQuestions;
 import com.MorneOConnor.factory.AuthenticationQuestionsFactory;
+import javafx.application.Application;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -17,15 +20,14 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class)
 @RunWith(SpringRunner.class)
 
 public class AuthenticationQuestionsControllerTest {
     @Autowired
-
     private TestRestTemplate restTemplate;
     private String baseURL="http://localhost:8080/authenticationquestions";
-    @Ignore
+    @Test
     public void create() throws Exception {
         AuthenticationQuestions authenticationquestions =
                 AuthenticationQuestionsFactory.createAuthenticationQuestions("mom"," dad",1);
@@ -35,7 +37,7 @@ public class AuthenticationQuestionsControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void update() throws Exception {
         int id = 1;
         AuthenticationQuestions authenticationquestions = restTemplate.getForObject(baseURL + "/authenticationquestions/" + id, AuthenticationQuestions.class);
@@ -45,7 +47,7 @@ public class AuthenticationQuestionsControllerTest {
         assertNotNull(updateAuthenticationQuestions);
     }
 
-    @Ignore
+    @Test
     public void delete() throws Exception {
         int id = 2;
         AuthenticationQuestions authenticationquestions = restTemplate.getForObject(baseURL + "/authenticationquestions/" + id, AuthenticationQuestions.class);
@@ -58,7 +60,7 @@ public class AuthenticationQuestionsControllerTest {
         }
     }
 
-    @Ignore
+    @Test
     public void read() throws Exception {
         AuthenticationQuestions authenticationQuestions = restTemplate.getForObject(baseURL + "/authenticationquestions/1", AuthenticationQuestions.class);
         System.out.println(authenticationQuestions.getMotherName());
