@@ -8,12 +8,16 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 
 import static org.junit.Assert.*;
 import java.util.Set;
 
 public class AuthenticationQuestionServiceTest {
+    @Autowired
+    @Qualifier("ServiceImpl")
     private AuthenticationQuestionRepository repository;
     private AuthenticationQuestions question;
 

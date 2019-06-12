@@ -3,6 +3,7 @@ package com.MorneOConnor.controller;
 import com.MorneOConnor.domain.BlackBoardNewPassword;
 import com.MorneOConnor.factory.BlackBoardNewPasswordFactory;
 import com.MorneOConnor.factory.BlackBoardPasswordFactory;
+import javafx.application.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,9 +16,10 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.*;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class)
 @RunWith(SpringRunner.class)
 public class BlackBoardNewPasswordControllerTest {
+
     private TestRestTemplate restTemplate;
     private String baseURL="http://localhost:8080/blackboardnewpassword";
     @Test

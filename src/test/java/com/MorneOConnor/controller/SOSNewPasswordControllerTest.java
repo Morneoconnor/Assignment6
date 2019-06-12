@@ -2,6 +2,7 @@ package com.MorneOConnor.controller;
 
 import com.MorneOConnor.domain.SOSNewPassword;
 import com.MorneOConnor.factory.SOSNewPasswordFactory;
+import javafx.application.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +15,7 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.*;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class)
 @RunWith(SpringRunner.class)
 public class SOSNewPasswordControllerTest {
 
