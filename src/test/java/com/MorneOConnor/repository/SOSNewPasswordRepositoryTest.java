@@ -21,7 +21,7 @@ public class SOSNewPasswordRepositoryTest {
     @Test
     public void create() throws Exception {
         SOSNewPassword obj = SOSNewPasswordFactory.createSOSNewPassword
-                ("PW1");
+                ("PW1", 1);
 
         this.repository.create(obj);
         Assert.assertEquals("PW1", obj.getNewSOSPassword());
@@ -36,7 +36,7 @@ public class SOSNewPasswordRepositoryTest {
     @Test
     public void update() throws Exception {
         SOSNewPassword obj = SOSNewPasswordFactory.createSOSNewPassword
-                ("PW1");
+                ("PW1", 1);
 
         Assert.assertEquals("PW1", obj.getNewSOSPassword());
     }

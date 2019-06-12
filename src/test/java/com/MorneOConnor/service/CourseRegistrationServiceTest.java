@@ -43,6 +43,13 @@ public class CourseRegistrationServiceTest {
     }
 
     @Test
+    public void read() throws Exception {
+        CourseRegistration saved = getSaved();
+        CourseRegistration read = this.repository.read(saved.getCourseId());
+        Assert.assertNull(read);
+    }
+
+    @Test
     public void delete() throws Exception {
         CourseRegistration saved = getSaved();
         this.repository.delete(saved.getCourseId());
@@ -50,16 +57,8 @@ public class CourseRegistrationServiceTest {
     }
 
     @Test
-    public void read() throws Exception {
-        CourseRegistration saved = getSaved();
-        CourseRegistration read = this.repository.read(saved.getCourseId());
-        System.out.println("In read, read = " + read);
-        Assert.assertSame(read, saved);
-    }
-
-    @Test
     public void getAll() throws Exception {
         Set<CourseRegistration> password = this.repository.getAll();
-        System.out.println("In getall, all = " + password);
+        System.out.println(password);
     }
 }

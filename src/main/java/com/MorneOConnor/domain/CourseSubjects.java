@@ -33,6 +33,12 @@ public class CourseSubjects {
             this.subjectId = subjectId;
             return this;
         }
+        public Builder copy(CourseSubjects course){
+            this.subjectId = course.subjectId;
+            this.subjectName = course.subjectName;
+
+            return this;
+        }
 
         public CourseSubjects build() {
             return new CourseSubjects(this);

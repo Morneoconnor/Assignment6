@@ -22,7 +22,7 @@ public class AuthenticationQuestionRepositoryTest {
     @Test
     public void create() throws Exception {
         AuthenticationQuestions obj = AuthenticationQuestionsFactory.createAuthenticationQuestions
-                ("mom","dad","111");
+                ("mom","dad",1);
 
         this.repository.create(obj);
         Assert.assertEquals("dad", obj.getFatherName());
@@ -38,7 +38,7 @@ public class AuthenticationQuestionRepositoryTest {
     @Test
     public void update() throws Exception {
         AuthenticationQuestions obj = AuthenticationQuestionsFactory.createAuthenticationQuestions
-                ("mom","dad","111");
+                ("mom","dad",1);
         Assert.assertEquals("mom", obj.getMotherName());
     }
 

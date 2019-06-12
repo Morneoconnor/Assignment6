@@ -13,7 +13,6 @@ import org.junit.runners.MethodSorters;
 import static org.junit.Assert.*;
 import java.util.Set;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AuthenticationQuestionServiceTest {
     private AuthenticationQuestionRepository repository;
     private AuthenticationQuestions question;
@@ -25,7 +24,7 @@ public class AuthenticationQuestionServiceTest {
     @Before
     public void setUp() throws Exception {
         this.repository = AuthenticationQuestionRepository.getRepository();
-        this.question = AuthenticationQuestionsFactory.createAuthenticationQuestions("Mom","Dad","123");
+        this.question = AuthenticationQuestionsFactory.createAuthenticationQuestions("Mom","Dad",1);
     }
 
     @Test
@@ -46,24 +45,23 @@ public class AuthenticationQuestionServiceTest {
     }
 
     @Test
-    public void delete() throws Exception {
+    public void read() throws Exception {
         AuthenticationQuestions saved = getSaved();
-        this.repository.delete(saved.getId());
-        getAll();
+        AuthenticationQuestions read = this.repository.read(Integer.toString(saved.getId()));
+        Assert.assertNull(read);
     }
 
     @Test
-    public void read() throws Exception {
+    public void delete() throws Exception {
         AuthenticationQuestions saved = getSaved();
-        AuthenticationQuestions read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        this.repository.delete(Integer.toString(saved.getId()));
+        getAll();
     }
 
     @Test
     public void getAll() throws Exception {
         Set<AuthenticationQuestions> questions = this.repository.getAll();
-        System.out.println("In getall, all = " + questions);
+        System.out.println(questions);
     }
 
 }

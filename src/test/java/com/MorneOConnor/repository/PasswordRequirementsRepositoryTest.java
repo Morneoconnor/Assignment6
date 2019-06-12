@@ -21,7 +21,7 @@ public class PasswordRequirementsRepositoryTest {
     @Test
     public void create() throws Exception {
         PasswordRequirements obj = PasswordRequirementsFactory.createPasswordRequirements
-                ("", 20);
+                ("", 20, 1);
 
         this.repository.create(obj);
         Assert.assertEquals(20, obj.getPasswordCharactherLenght());
@@ -36,7 +36,7 @@ public class PasswordRequirementsRepositoryTest {
     @Test
     public void update() throws Exception {
         PasswordRequirements obj = PasswordRequirementsFactory.createPasswordRequirements
-                ("",20);
+                ("",20, 1);
 
         Assert.assertEquals(20, obj.getPasswordCharactherLenght());
     }

@@ -4,10 +4,11 @@ import com.MorneOConnor.domain.BlackBoardNewPassword;
 public class BlackBoardNewPasswordFactory {
 
     public static BlackBoardNewPassword createBlackBoardNewPassword(
-            String newBlackBoardPassword)
+            String newBlackBoardPassword,int id)
     {
         return new BlackBoardNewPassword.Builder()
                 .newBlackBoardPassword(newBlackBoardPassword)
+                .id(id)
                 .build();
     }
 }

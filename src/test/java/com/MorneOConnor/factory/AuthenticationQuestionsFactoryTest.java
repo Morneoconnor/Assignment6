@@ -12,7 +12,7 @@ public class AuthenticationQuestionsFactoryTest {
         public  void createAuthenticationQuestions() {
             String name = "Renette";
             AuthenticationQuestions obj = AuthenticationQuestionsFactory.createAuthenticationQuestions
-                    ("Renette", "Chris" ,"111");
+                    ("Renette", "Chris" ,1);
             Assert.assertEquals("Chris",obj.getFatherName());
         }
 }

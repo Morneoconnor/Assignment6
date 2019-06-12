@@ -5,7 +5,7 @@ import com.MorneOConnor.domain.AuthenticationQuestions;
 public class AuthenticationQuestionsFactory{
 
     public static AuthenticationQuestions createAuthenticationQuestions(
-            String motherName, String fatherName, String id)
+            String motherName, String fatherName, int id)
     {
         return new AuthenticationQuestions.Builder()
                 .motherName(motherName)

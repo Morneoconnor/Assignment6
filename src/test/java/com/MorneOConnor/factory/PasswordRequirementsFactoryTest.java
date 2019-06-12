@@ -12,7 +12,7 @@ public class PasswordRequirementsFactoryTest {
             String name = "Password123!";
             int id = 11;
             PasswordRequirements obj = PasswordRequirementsFactory.createPasswordRequirements
-                    (name, id);
+                    (name, id, 1);
             Assert.assertEquals("Password123",obj.getPasswordCharacther());
             Assert.assertEquals(11,obj.getPasswordCharactherLenght());
         }

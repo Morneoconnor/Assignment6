@@ -11,7 +11,7 @@ public class BlackBoardPasswordFactoryTest {
     public void createBlackBoardPassword(){
     String name = "Password";
     BlackBoardPassword obj = BlackBoardPasswordFactory.createBlackBoardPassword
-            (name);
+            (name, 1);
         Assert.assertEquals("Password",obj.getOldBlackBoardPassword());
 }
 }

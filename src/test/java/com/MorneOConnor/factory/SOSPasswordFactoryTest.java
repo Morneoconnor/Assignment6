@@ -11,7 +11,7 @@ public class SOSPasswordFactoryTest {
     public void createSOSPassword() {
         String name = "Password123";
         SOSPassword obj = SOSPasswordFactory.createSOSPassword
-                (name);
+                (name, 1);
         Assert.assertEquals("Password123",obj.getOldSOSPassword());
     }
 }

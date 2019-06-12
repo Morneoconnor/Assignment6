@@ -22,7 +22,7 @@ public class PasswordRequirementsServiceTest {
     @Before
     public void setUp() throws Exception {
         this.repository = PasswordRequirementsRepository.getRepository();
-        this.requirements = PasswordRequirementsFactory.createPasswordRequirements("Password",12);
+        this.requirements = PasswordRequirementsFactory.createPasswordRequirements("Password",7, 1);
     }
 
     @Test
@@ -43,6 +43,13 @@ public class PasswordRequirementsServiceTest {
     }
 
     @Test
+    public void read() throws Exception {
+        PasswordRequirements saved = getSaved();
+        PasswordRequirements read = this.repository.read(saved.getPasswordCharactherLenght());
+        Assert.assertNull(read);
+    }
+
+    @Test
     public void delete() throws Exception {
         PasswordRequirements saved = getSaved();
         this.repository.delete(saved.getPasswordCharactherLenght());
@@ -50,16 +57,8 @@ public class PasswordRequirementsServiceTest {
     }
 
     @Test
-    public void read() throws Exception {
-        PasswordRequirements saved = getSaved();
-        PasswordRequirements read = this.repository.read(saved.getPasswordCharactherLenght());
-        System.out.println("In read, read = " + read);
-        Assert.assertSame(read, saved);
-    }
-
-    @Test
     public void getAll() throws Exception {
         Set<PasswordRequirements> password = this.repository.getAll();
-        System.out.println("In getall, all = " + password);
+        System.out.println(password);
     }
 }

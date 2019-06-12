@@ -21,7 +21,7 @@ public class BlackBoardPasswordRepositoryTest {
     @Test
     public void create() throws Exception {
         BlackBoardPassword obj = BlackBoardPasswordFactory.createBlackBoardPassword
-                ("Password111!");
+                ("Password111!", 1);
 
         this.repository.create(obj);
         Assert.assertEquals("Password111!", obj.getOldBlackBoardPassword());
@@ -36,7 +36,7 @@ public class BlackBoardPasswordRepositoryTest {
     @Test
     public void update() throws Exception {
         BlackBoardPassword obj = BlackBoardPasswordFactory.createBlackBoardPassword
-                ("Password111!");
+                ("Password111!", 1);
         Assert.assertEquals("Password111!", obj.getOldBlackBoardPassword());
     }
 

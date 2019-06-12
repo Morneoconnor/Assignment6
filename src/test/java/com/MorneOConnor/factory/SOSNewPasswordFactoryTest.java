@@ -12,7 +12,7 @@ public class SOSNewPasswordFactoryTest {
         String name = "Password";
         int id = 11;
         SOSNewPassword obj = SOSNewPasswordFactory.createSOSNewPassword
-                (name);
+                (name, 1);
         Assert.assertEquals("Password",obj.getNewSOSPassword());
     }
 }

@@ -22,7 +22,7 @@ public class BlackBoardNewPasswordServiceTest {
     @Before
     public void setUp() throws Exception {
         this.repository = BlackBoardNewPasswordRepository.getRepository();
-        this.password = BlackBoardNewPasswordFactory.createBlackBoardNewPassword("Password");
+        this.password = BlackBoardNewPasswordFactory.createBlackBoardNewPassword("Password", 1);
     }
 
     @Test
@@ -41,6 +41,12 @@ public class BlackBoardNewPasswordServiceTest {
         this.repository.update(updated);
         Assert.assertSame(newPassword, updated.getNewBlackBoardPassword());
     }
+    @Test
+    public void read() throws Exception {
+        BlackBoardNewPassword saved = getSaved();
+        BlackBoardNewPassword read = this.repository.read(saved.getNewBlackBoardPassword());
+        Assert.assertNull(read);
+    }
 
     @Test
     public void delete() throws Exception {
@@ -50,17 +56,9 @@ public class BlackBoardNewPasswordServiceTest {
     }
 
     @Test
-    public void read() throws Exception {
-        BlackBoardNewPassword saved = getSaved();
-        BlackBoardNewPassword read = this.repository.read(saved.getNewBlackBoardPassword());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
-    }
-
-    @Test
     public void getAll() throws Exception {
         Set<BlackBoardNewPassword> password = this.repository.getAll();
-        System.out.println("In getall, all = " + password);
+        System.out.println(password);
     }
 
 }

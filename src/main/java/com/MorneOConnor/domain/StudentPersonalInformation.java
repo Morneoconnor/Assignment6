@@ -61,6 +61,15 @@ public class StudentPersonalInformation {
             this.emailAddress = emailAddress;
             return this;
         }
+        public Builder copy(StudentPersonalInformation information){
+            this.emailAddress = information.emailAddress;
+            this.studentName = information.studentName;
+            this.studentSurName = information.studentSurName;
+            this.studentNumber = information.studentNumber;
+            this.studentIdNumber = information.studentIdNumber;
+
+            return this;
+        }
 
         public StudentPersonalInformation build() {
             return new StudentPersonalInformation(this);

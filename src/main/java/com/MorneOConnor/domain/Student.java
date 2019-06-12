@@ -41,6 +41,13 @@ public class Student {
             this.studentNumber = studentNumber;
             return this;
         }
+        public Builder copy(Student information){
+            this.studentName = information.studentName;
+            this.studentNumber = information.studentNumber;
+            this.courseName = information.courseName;
+
+            return this;
+        }
 
         public Student build() {
             return new Student(this);

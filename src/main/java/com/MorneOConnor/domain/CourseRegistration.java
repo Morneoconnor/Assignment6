@@ -32,6 +32,12 @@ public class CourseRegistration {
             this.courseId = courseId;
             return this;
         }
+        public Builder copy(CourseRegistration course){
+            this.courseId = course.courseId;
+            this.courseName = course.courseName;
+
+            return this;
+        }
 
         public CourseRegistration build() {
             return new CourseRegistration(this);

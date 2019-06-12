@@ -2,7 +2,8 @@ package com.MorneOConnor.domain;
 
 public class AuthenticationQuestions {
 
-    private String motherName, fatherName, id;
+    private String motherName, fatherName;
+    private int id;
 
     private AuthenticationQuestions() {
     }
@@ -21,12 +22,13 @@ public class AuthenticationQuestions {
         return fatherName;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     public static class Builder {
-        private String motherName, fatherName, id;
+        private String motherName, fatherName;
+        private int id;
 
         public Builder motherName(String motherName) {
             this.motherName = motherName;
@@ -38,8 +40,15 @@ public class AuthenticationQuestions {
             return this;
         }
 
-        public Builder id(String fatherName) {
+        public Builder id(int id) {
             this.id = id;
+            return this;
+        }
+        public Builder copy(AuthenticationQuestions questions){
+            this.motherName = questions.motherName;
+            this.fatherName = questions.fatherName;
+            this.id = questions.id;
+
             return this;
         }
 
